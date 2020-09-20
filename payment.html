@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  -->  
+  
+  
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <script src="cleave.js"></script>
+    <div class="container">
+        <div class="header">
+            <h2 style="float: left;">Card Details</h2> 
+            <img src="img/def.jpg" alt="" width="60px" height="40px" style="float: right;" id="card_type">
+        </div>
+        <form class="form" id="form1">
+            <div class="form-control">
+                <label>Name</label>
+                <input type="text" placholder="Name" id="username" >
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                <small>Error Message</small>
+             </div>
+             <div class="form-control">
+                <label>Card Number</label>
+                <input type="numver" placholder="cardnumber" id="cardnumber">
+                <img src="" alt="">
+                <i class="fa fa-check-circle"></i>
+                <i class="fa fa-exclamation-circle"></i>
+                
+                <small>Error Message</small>
+             </div>
+             <script>new Cleave("#cardnumber",{
+                creditCard:true,
+                
+                onCreditCardTypeChanged: function (type) {
+                   
+                    switch(type){
+                        case "visa":
+                        document.getElementById("card_type").setAttribute('src',"img/visa.jpg");
+                        break;
+                        case "amex":
+                        document.getElementById("card_type").setAttribute('src',"img/amex.png");
+                        break;
+                        case "mastercard":
+                        document.getElementById("card_type").setAttribute('src',"img/master.png");
+                        break;
+                        case "diners":
+                        document.getElementById("card_type").setAttribute('src',"img/din.png");
+                        break;
+                        case "jcb":
+                        document.getElementById("card_type").setAttribute('src',"img/jcb.png");
+                        break;
+                        case "discover":
+                        document.getElementById("card_type").setAttribute('src',"img/dis.png");
+                        break;
+                        default:
+                        document.getElementById("card_type").setAttribute('src',"img/def.jpg");
+                        
+                    }
+                    
+                    
+                }
+            });</script>
+             <div>
+                <div class="card-grp form-control" >
+                    <label>Expire Date</label>
+                    <input type="text" placholder="xx/xx" id="expiredate">
+                    <i class="fa fa-check-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                 </div>
+             
+                <div class="card-item form-control" >
+                    <label>CVV</label>
+                    <input type="number" placholder="xxx" id="cvv">
+                    <i class="fa fa-check-circle"></i>
+                    <i class="fa fa-exclamation-circle"></i>
+                    <small>Error Message</small>
+                 </div>
+             </div>
+                        
+                                
+            <div class="btn">
+
+                <button type="submit" id="click">Next</button>
+            </div>
+            
+        </form>
+    </div>
+   <!--Java Script Link-->
+    <script type="text/javascript" src="payment.js"></script>
+    <script src="cleave.js"></script>
+</body>
+</html>
